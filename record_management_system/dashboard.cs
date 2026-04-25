@@ -119,15 +119,6 @@ namespace record_management_system
             Reset();
         }
 
-        private void btnprofiling_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void btnhousehold_Click(object sender, EventArgs e)
-        {
-          
-        }
-
         private void btnbrgyservice_Click(object sender, EventArgs e)
         {
             OpenForm(new FORMS.USERS(), sender);
@@ -141,28 +132,12 @@ namespace record_management_system
             lbltitle.Text = "WATER LINKAGE";
         }
 
-        private void btnreports_Click(object sender, EventArgs e)
-        {
-           
-        }
-
-        // --- Dashboard Card Shortcut Buttons ---
-
-        private void btnresidentlist_Click(object sender, EventArgs e)
-        {
-           
-        }
-
-        private void btnbrgyofficials_Click(object sender, EventArgs e)
-        {
-            
-        }
-
         // --- Form Controls & Load ---
 
         private void dashboard_Load(object sender, EventArgs e)
         {
-{
+            lblUsername.Text = "Welcome, " + Login.username;
+            {
             using (MySqlConnection connection = new MySqlConnection(Login.connectstring))
             {
                 try
@@ -299,5 +274,6 @@ namespace record_management_system
             // Siguroha nga ang 'sender' mao ang button nga gi-click
             OpenForm(new FORMS.Reports(), sender);
         }
+
     }
 }

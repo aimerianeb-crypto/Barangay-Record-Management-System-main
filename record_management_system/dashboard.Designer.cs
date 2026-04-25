@@ -59,6 +59,7 @@ namespace record_management_system
             this.lbluser = new System.Windows.Forms.Label();
             this.btnbrgyofficials = new System.Windows.Forms.Button();
             this.btnresidentlist = new System.Windows.Forms.Button();
+            this.lblUsername = new System.Windows.Forms.Label();
             this.pnlmenu.SuspendLayout();
             this.pnllogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -225,6 +226,7 @@ namespace record_management_system
             // pnltitlebar
             // 
             this.pnltitlebar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
+            this.pnltitlebar.Controls.Add(this.lblUsername);
             this.pnltitlebar.Controls.Add(this.btnmaximize);
             this.pnltitlebar.Controls.Add(this.btnexit);
             this.pnltitlebar.Controls.Add(this.btnmini);
@@ -460,6 +462,18 @@ namespace record_management_system
             this.btnresidentlist.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnresidentlist.UseVisualStyleBackColor = true;
             // 
+            // lblUsername
+            // 
+            this.lblUsername.AutoSize = true;
+            this.lblUsername.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
+            this.lblUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUsername.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblUsername.Location = new System.Drawing.Point(32, 13);
+            this.lblUsername.Name = "lblUsername";
+            this.lblUsername.Size = new System.Drawing.Size(70, 25);
+            this.lblUsername.TabIndex = 4;
+            this.lblUsername.Text = "label5";
+            // 
             // dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -524,5 +538,6 @@ namespace record_management_system
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btndash;
+        private System.Windows.Forms.Label lblUsername;
     }
 }
