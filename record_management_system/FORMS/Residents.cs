@@ -15,7 +15,7 @@ namespace record_management_system.FORMS
 {
     public partial class Residents : Form
     {
-        string connStr = "server=localhost;database=wbms_db;uid=root;pwd=;";
+        
 
         public Residents()
         {

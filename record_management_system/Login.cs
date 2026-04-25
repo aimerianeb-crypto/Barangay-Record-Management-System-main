@@ -151,11 +151,6 @@ namespace record_management_system
             }
         }
 
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void btnFP_Click(object sender, EventArgs e)
         {
             loadform(new forgetpass());
