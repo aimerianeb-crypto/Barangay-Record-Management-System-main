@@ -301,7 +301,6 @@ namespace record_management_system
             this.panelmain.Name = "panelmain";
             this.panelmain.Size = new System.Drawing.Size(782, 420);
             this.panelmain.TabIndex = 3;
-            this.panelmain.Paint += new System.Windows.Forms.PaintEventHandler(this.panelmain_Paint);
             // 
             // panel3
             // 

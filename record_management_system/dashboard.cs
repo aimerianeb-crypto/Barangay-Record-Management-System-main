@@ -138,48 +138,48 @@ namespace record_management_system
         {
             lblUsername.Text = "Welcome, " + Login.username;
             {
-            using (MySqlConnection connection = new MySqlConnection(Login.connectstring))
-            {
-                try
+                using (MySqlConnection connection = new MySqlConnection(Login.connectstring))
                 {
-                    connection.Open();
-
-                    // 1. Pag-ihap sa Users
-                    string queryUsers = "SELECT COUNT(*) FROM users";
-                    MySqlCommand command = new MySqlCommand(queryUsers, connection);
-                    lbluser.Text = command.ExecuteScalar().ToString();
-
-                    // 2. Pag-ihap sa Residents (Gidugangan og 'FROM' ug gi-fix ang spelling)
-                    string queryResidents = "SELECT COUNT(*) FROM client_list";
-                    MySqlCommand command2 = new MySqlCommand(queryResidents, connection);
-                    lblskbene.Text = command2.ExecuteScalar().ToString();
-
-                    // 3. Pag-ihap sa Services/Transactions (Ilisdi ang 'transaction' kung unsay bag-ong ngalan sa table)
-                    // Pananglitan: 'brgy_services' o 'requests'
-                    string queryTrans = "SELECT COUNT(*) FROM client_list"; // temporaryo lang ni, ilisdi sa saktong table name
-                    MySqlCommand command3 = new MySqlCommand(queryTrans, connection);
-                    label4.Text = command3.ExecuteScalar().ToString();
-
-                    // Role-based Access Control (Kadtong kaganina)
-                    if (Login.userole == "1")
+                    try
                     {
-                        btnbrgyservice.Visible = true;
-                        panel1.Visible = true;
-                        btnreports.Visible = true;
+                        connection.Open();
+
+                        // 1. Pag-ihap sa Users
+                        string queryUsers = "SELECT COUNT(*) FROM users";
+                        MySqlCommand command = new MySqlCommand(queryUsers, connection);
+                        lbluser.Text = command.ExecuteScalar().ToString();
+
+                        // 2. Pag-ihap sa Residents (Gidugangan og 'FROM' ug gi-fix ang spelling)
+                        string queryResidents = "SELECT COUNT(*) FROM client_list";
+                        MySqlCommand command2 = new MySqlCommand(queryResidents, connection);
+                        lblskbene.Text = command2.ExecuteScalar().ToString();
+
+                        // 3. Pag-ihap sa Services/Transactions (Ilisdi ang 'transaction' kung unsay bag-ong ngalan sa table)
+                        // Pananglitan: 'brgy_services' o 'requests'
+                        string queryTrans = "SELECT COUNT(*) FROM client_list"; // temporaryo lang ni, ilisdi sa saktong table name
+                        MySqlCommand command3 = new MySqlCommand(queryTrans, connection);
+                        label4.Text = command3.ExecuteScalar().ToString();
+
+                        // Role-based Access Control (Kadtong kaganina)
+                        if (Login.userole == "1")
+                        {
+                            btnbrgyservice.Visible = true;
+                            panel1.Visible = true;
+                            btnreports.Visible = true;
+                        }
+                        else
+                        {
+                            panel1.Visible = false;
+                            btnbrgyservice.Visible = false;
+                            btnreports.Visible = false;
+                        }
                     }
-                    else
+                    catch (Exception ex)
                     {
-                        panel1.Visible = false;
-                        btnbrgyservice.Visible = false;
-                        btnreports.Visible = false;
+                        MessageBox.Show("Dashboard Load Error: " + ex.Message);
                     }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Dashboard Load Error: " + ex.Message);
                 }
             }
-        }
 
             // Role-based Access Control sa dashboard_Load
             if (Login.userole == "1") // Admin
@@ -188,15 +188,15 @@ namespace record_management_system
                 btnreports.Visible = true;  // I-show ang reports para sa Admin
                 panel1.Visible = true;
             }
-            else 
+            else
             {
                 // Dinhi nimo i-control kung unsa gyud ang itago
-                btnreports.Visible = true;    
+                btnreports.Visible = true;
 
                 // Siguroha nga ang Barangay Service makita gihapon
                 btnbrgyservice.Visible = true;
                 panel1.Visible = true;
-             
+
             }
         }
 
@@ -229,9 +229,6 @@ namespace record_management_system
             this.WindowState = FormWindowState.Minimized;
         }
 
-        private void panelmain_Paint(object sender, PaintEventArgs e)
-        {
-        }
 
         private void btnmaximize_Click(object sender, EventArgs e)
         {
